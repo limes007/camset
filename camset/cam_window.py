@@ -68,7 +68,7 @@ class CamWindow(Gtk.Window):
             # TODO: resizing video and window this way is very cpu intensive for large resolutions, should be improved or removed
             frame = cv2.resize(frame, dim, interpolation = cv2.INTER_CUBIC)
             frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB) # needed for proper color representation in gtk
-            pixbuf = GdkPixbuf.Pixbuf.new_from_data(frame.tostring(),
+            pixbuf = GdkPixbuf.Pixbuf.new_from_data(frame.tobytes(),
                                                 GdkPixbuf.Colorspace.RGB,
                                                 False,
                                                 8,
